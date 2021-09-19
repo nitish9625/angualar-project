@@ -1,0 +1,95 @@
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+        <h1>Angular Crud</h1>
+        <div class="d-flex">
+          
+            <button class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">Add Employee</button>
+            <button (click)="logout()" class="btn btn-danger mx-3">Logout Welcome {{userdata.fulname}}</button>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+  <table class="table mt-4">
+    <thead>
+        <tr>
+            <th scope="col">EmployeeId</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email Id</th>
+            <th scope="col">Mobile No</th>
+            <th scope="col">Salary</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of employeeData">
+            <td>{{row.id}}</td>
+            <td>{{row.firstName}}</td>
+            <td>{{row.lastName}}</td>
+            <td>{{row.email}}</td>
+            <td>{{row.mobile}}</td>
+            <td>{{row.salary}}</td>
+            <td>
+                <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exampleModalCenter" (click)="onEdit(row)">Edit</button>
+                <button class="btn btn-sm btn-danger mx-3" (click)="deleteEmployee(row)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Button trigger modal -->
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Employee Detail</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         
+            <form [formGroup]="formValue">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">First Name</label>
+                  <input type="text" formControlName="firstName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="First Name">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Last Name</label>
+                    <input type="text" formControlName="lastName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Last Name">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email Address</label>
+                    <input type="Email" formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Mobile Number</label>
+                    <input type="text" formControlName="mobile" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Mobile Number">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Sallary</label>
+                    <input type="text" formControlName="salary"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Sallary">
+                  </div>
+               
+               
+              </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="cancel" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" (click)="postEmployeeDetail()" class="btn btn-primary">Add</button>
+          <button type="button" (click)="updateEmployeeDetail()" class="btn btn-primary">update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,32 @@
+{
+  "posts": [
+    {
+      "id": 2,
+      "firstName": "Nitish",
+      "lastName": "sharma",
+      "email": "nitsh@gmail.com",
+      "mobile": "8580800083",
+      "salary": "30000"
+    },
+    {
+      "id": 3,
+      "firstName": "nitish",
+      "lastName": "sharma",
+      "email": "nitish@gmail.com",
+      "mobile": "85545485",
+      "salary": "50000"
+    }
+  ],
+  "signupUser": [
+    {
+      "fulname": "dfg",
+      "email": "dsfdgdfg@gmail.com",
+      "password": "sdfdgfdg",
+      "mobile": 6562662,
+      "id": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
